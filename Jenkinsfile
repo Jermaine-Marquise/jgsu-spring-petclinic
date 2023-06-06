@@ -12,11 +12,5 @@ pipeline {
 	sh 'mvn clean install -Dcheckstyle.skip'
       }
    }
-  stage('Docker Build') {
-    	agent any
-      steps {
-      	sh 'docker build -t jermaine-marquise/spring-petclinic:latest .'
-      }
-    }
   }
 }
