@@ -9,7 +9,12 @@ pipeline {
         }
       }
       steps {
-	sh 'mvn clean install -Dcheckstyle.skip -DoutputDirectory=/home/jenkins/workspace/spring-petclinic-docker/'
+	sh 'mvn clean install -Dcheckstyle.skip'
+      }
+      steps {
+	dir("/home/jenkins/workspace/spring-petclinic-docker") {
+    fileOperations([fileCopyOperation(excludes: '', flattenFiles: true, includes: '*.MTS', targetLocation: "${WORKSPACE}")])
+        }
       }
     }
   stage('Docker Build') {
