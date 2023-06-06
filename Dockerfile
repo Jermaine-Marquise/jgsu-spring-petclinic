@@ -5,7 +5,7 @@ LABEL maintainer="jmtest@lab.com"
 #RUN ls -l
 COPY ./*.jar /home/
 RUN pwd
-RUN cd /home/
+RUN cd "/home/"
 RUN pwd
 RUN ls -l
 CMD ["java","-jar","/home/spring-petclinic-1.5.1.jar"]
